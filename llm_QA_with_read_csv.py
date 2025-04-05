@@ -69,7 +69,7 @@ else:
     model_zephyr = "zephyr:latest"
     model_sailor2 = "sailor2:latest"
 
-    modelo_ollama = model_llama3_1
+    modelo_ollama = model_dolphin3
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.3,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
