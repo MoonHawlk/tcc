@@ -1,8 +1,6 @@
 # Instale as dependências necessárias:
 # pip install langchain transformers torch unstructured langchain-huggingface chromadb pandas
 
-import pandas as pd
-import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, pipeline
 from langchain.document_loaders import UnstructuredURLLoader
 from langchain.text_splitter import CharacterTextSplitter
@@ -10,7 +8,9 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain.prompts import FewShotPromptTemplate, PromptTemplate
-
+import pandas as pd
+import torch
+import time 
 # ---------------------------------------------------
 # Flags de configuração
 # ---------------------------------------------------
@@ -69,8 +69,9 @@ else:
     model_zephyr = "zephyr:latest"
     model_sailor2 = "sailor2:latest"
     model_deepseek_r1_llama = "deepseek-r1:8b"
+    model_gemma3_12b = "gemma3:12b"
 
-    modelo_ollama = model_deepseek_r1_llama
+    modelo_ollama = model_dolphin3
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.3,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
@@ -82,10 +83,12 @@ else:
 # 2. Carregando e preparando o conteúdo da página
 # ---------------------------------------------------
 url_pln_br = "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
-url_pln_en = "https://en.wikipedia.org/wiki/Natural_language_processing"
+
+url_pln_en_nlp = "https://en.wikipedia.org/wiki/Natural_language_processing"
+url_pln_en_brazil = "https://en.wikipedia.org/wiki/Brazil"
 
 
-loader = UnstructuredURLLoader(urls=[url_pln_en])
+loader = UnstructuredURLLoader(urls=[url_pln_en_brazil])
 docs = loader.load()
 
 if not docs:
@@ -179,6 +182,8 @@ if "pergunta" not in df.columns:
 lista_perguntas = df["pergunta"].tolist()
 lista_respostas = []
 
+start_time = time.time()
+
 for pergunta in lista_perguntas:
     print("\nPergunta:", pergunta)
     output = qa_chain.invoke({"query": pergunta})
@@ -186,6 +191,11 @@ for pergunta in lista_perguntas:
     lista_respostas.append(resposta)
     print("Resposta:", resposta)
 
+end_time = time.time()
+
 df["resposta"] = lista_respostas
 df.to_csv(csv_output, index=False)
 print("\nRespostas salvas em:", csv_output)
+
+tempo_total = end_time - start_time
+print(f"Tempo total: {tempo_total:.2f} segundos")
