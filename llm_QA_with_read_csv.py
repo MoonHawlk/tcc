@@ -14,7 +14,7 @@ from langchain.prompts import FewShotPromptTemplate, PromptTemplate
 # ---------------------------------------------------
 # Flags de configuração
 # ---------------------------------------------------
-usar_ollama = False      # True para usar modelo via Ollama; False para HuggingFace
+usar_ollama = True      # True para usar modelo via Ollama; False para HuggingFace
 usar_few_shot = False   # True para usar few-shot prompt; False para não usar (recomendado para perguntas diversas)
 
 # ---------------------------------------------------
@@ -41,9 +41,9 @@ if not usar_ollama:
     model.to(device)
 
     gen_config = GenerationConfig(
-        temperature=0.7,
-        top_k=50,
-        top_p=0.9,
+        temperature=0.3,
+        top_k=30,
+        top_p=0.8,
         max_new_tokens=128
     )
     model.generation_config = gen_config
@@ -60,18 +60,31 @@ if not usar_ollama:
     print(teste[0]["generated_text"])
 
     llm = HuggingFacePipeline(pipeline=hf_pipeline)
+    
 else:
     from langchain.llms import Ollama
     # Certifique-se de que o modelo escolhido está disponível (ex: via 'ollama pull llama3')
-    modelo_ollama = "llama3"  # ou "mistral", "llama2", etc.
-    llm = Ollama(model=modelo_ollama)
+    model_llama3_1 = "llama3.1:latest" 
+    model_dolphin3 = "dolphin3:latest"
+    model_zephyr = "zephyr:latest"
+    model_sailor2 = "sailor2:latest"
+
+    modelo_ollama = model_llama3_1
+    llm = Ollama(model=modelo_ollama, 
+                       temperature=0.3,  # Respostas mais conservadoras
+                       top_k=30,         # Limita a diversidade dos tokens
+                       top_p=0.8,        # Controla a probabilidade acumulada dos tokens escolhidos
+                       )
     print("Usando modelo via Ollama:", modelo_ollama)
 
 # ---------------------------------------------------
 # 2. Carregando e preparando o conteúdo da página
 # ---------------------------------------------------
-url = "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
-loader = UnstructuredURLLoader(urls=[url])
+url_pln_br = "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
+url_pln_en = "https://en.wikipedia.org/wiki/Natural_language_processing"
+
+
+loader = UnstructuredURLLoader(urls=[url_pln_en])
 docs = loader.load()
 
 if not docs:
@@ -80,7 +93,7 @@ else:
     print("\nDocumento carregado com sucesso. Exibindo os primeiros 200 caracteres do primeiro documento:")
     print(docs[0].page_content[:200])
 
-text_splitter = CharacterTextSplitter(separator=" ", chunk_size=500, chunk_overlap=50)
+text_splitter = CharacterTextSplitter(separator=" ", chunk_size=512, chunk_overlap=50)
 docs = text_splitter.split_documents(docs)
 
 print(f"\nNúmero de chunks criados: {len(docs)}")
@@ -91,9 +104,12 @@ for i, doc in enumerate(docs[:3]):
 # ---------------------------------------------------
 # 3. Criando o vetor de similaridade com Chroma
 # ---------------------------------------------------
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+all_mini = "sentence-transformers/all-MiniLM-L6-v2"
+snowflake = "Snowflake/snowflake-arctic-embed-l-v2.0"
+
+embeddings = HuggingFaceEmbeddings(model_name=all_mini)
 vectorstore = Chroma.from_documents(docs, embeddings)
-retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+retriever = vectorstore.as_retriever(search_kwargs={"k":3})
 
 # ---------------------------------------------------
 # 4. (Opcional) Configurando o few-shot prompt
@@ -136,7 +152,7 @@ if usar_few_shot:
 if usar_few_shot:
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
-        chain_type="stuff",  # 'stuff' concatena o contexto e o prompt
+        chain_type="refine",  # 'stuff' concatena o contexto e o prompt
         retriever=retriever,
         return_source_documents=True,
         chain_type_kwargs={"prompt": few_shot_prompt}
@@ -144,7 +160,7 @@ if usar_few_shot:
 else:
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
-        chain_type="stuff",
+        chain_type="refine",
         retriever=retriever,
         return_source_documents=True
     )
@@ -152,7 +168,7 @@ else:
 # ---------------------------------------------------
 # 6. Processando múltiplas perguntas de um CSV e salvando as respostas
 # ---------------------------------------------------
-csv_input = "perguntas.csv"   # arquivo CSV de entrada (deve conter a coluna "pergunta")
+csv_input = "perguntas.csv"    # arquivo CSV de entrada (deve conter a coluna "pergunta")
 csv_output = "respostas.csv"   # arquivo CSV de saída
 
 df = pd.read_csv(csv_input)
