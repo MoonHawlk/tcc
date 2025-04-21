@@ -171,6 +171,17 @@ df.to_csv(csv_output, index=False)
 print(f"\nRespostas salvas em: {csv_output}")
 print(f"Tempo QA: {elapsed:.2f}s")
 
+import subprocess
+
+def unload_model(model_name: str):
+    """
+    Descarrega (stop) o modelo do Ollama para liberar memória GPU/CPU.
+    """
+    # opção A: invocando o CLI do Ollama
+    subprocess.run(["ollama", "stop", model_name], check=True)
+
+unload_model(modelo_ollama)
+
 # ---------------------------------------------------
 # 7. Avaliação com RAGAS
 # ---------------------------------------------------
@@ -178,10 +189,22 @@ from ragas import evaluate
 from ragas.metrics import faithfulness, answer_relevancy
 from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
+from ragas.run_config import RunConfig
+
+# Configs Ragas
+run_config = RunConfig(max_workers=1,
+                       timeout=120)
 
 # supondo que 'llm' seja seu HuggingFacePipeline ou Ollama já configurado
 # e 'embeddings' seja seu HuggingFaceEmbeddings
-wrapped_llm        = LangchainLLMWrapper(llm)
+
+llm_judger = Ollama(model=model_gemma3_12b, 
+                       temperature=0.1,  # Respostas mais conservadoras
+                       top_k=15,         # Limita a diversidade dos tokens
+                       top_p=0.9,        # Controla a probabilidade acumulada dos tokens escolhidos
+                       )
+
+wrapped_llm        = LangchainLLMWrapper(llm_judger)
 wrapped_embeddings = LangchainEmbeddingsWrapper(embeddings)
 
 # Prepare seu dataset igual antes
@@ -198,7 +221,8 @@ result = evaluate(
     dataset=hf_dataset,
     metrics=[faithfulness, answer_relevancy],
     llm=wrapped_llm,
-    embeddings=wrapped_embeddings
+    embeddings=wrapped_embeddings,
+    run_config=run_config
 )
 
 df_scores = result.to_pandas()
