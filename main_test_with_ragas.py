@@ -185,24 +185,32 @@ unload_model(modelo_ollama)
 # ---------------------------------------------------
 # 7. Avaliação com RAGAS
 # ---------------------------------------------------
-from ragas import evaluate
 from ragas.metrics import faithfulness, answer_relevancy
-from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
+from langchain.chat_models import ChatOpenAI
+from ragas.llms import LangchainLLMWrapper
 from ragas.run_config import RunConfig
+from ragas import evaluate
+from dotenv import load_dotenv
+import os
+
+# carrega as variáveis definidas no .env para o ambiente
+load_dotenv()  
+
+# recupera a chave
+openai_key = os.getenv("OPENAI_API_KEY")
+if openai_key is None:
+    raise ValueError("Não encontrou OPENAI_API_KEY no ambiente")
 
 # Configs Ragas
-run_config = RunConfig(max_workers=1,
+run_config = RunConfig(max_workers=2,
                        timeout=120)
 
-# supondo que 'llm' seja seu HuggingFacePipeline ou Ollama já configurado
-# e 'embeddings' seja seu HuggingFaceEmbeddings
-
-llm_judger = Ollama(model=model_gemma3_12b, 
-                       temperature=0.1,  # Respostas mais conservadoras
-                       top_k=15,         # Limita a diversidade dos tokens
-                       top_p=0.9,        # Controla a probabilidade acumulada dos tokens escolhidos
-                       )
+llm_judger = ChatOpenAI(
+    model_name="gpt-4.1-nano-2025-04-14",
+    temperature=0.1,
+    openai_api_key=openai_key
+)
 
 wrapped_llm        = LangchainLLMWrapper(llm_judger)
 wrapped_embeddings = LangchainEmbeddingsWrapper(embeddings)
