@@ -11,15 +11,29 @@ from langchain.prompts import FewShotPromptTemplate, PromptTemplate
 import pandas as pd
 import torch
 import time 
+
+
+# ---------------------------------------------------
+# Estrutura da Arquitetura Atual
+# ---------------------------------------------------
+# [Config] → [LLM Init] → [Loader & Split] → [Embeddings & VectorStore] → [QA Chain] → [CSV I/O]
+# Com isso, nós primeiro embeddamos a página web, ao qual posteriomente é consultada pelo nosso 
+# Vetor de Similaridade e enriquecido o contexto, por fim, chegando a nossa LLM.
+# ---------------------------------------------------
+
 # ---------------------------------------------------
 # Flags de configuração
 # ---------------------------------------------------
+# Ollama Mode (Executar modelos diretamente pelo Ollama)
+# Few-Shot Mode (Descontinuado devido a necesside de aprimoramento a cada nova pergunta)
+
 usar_ollama = True      # True para usar modelo via Ollama; False para HuggingFace
 usar_few_shot = False   # True para usar few-shot prompt; False para não usar (recomendado para perguntas diversas)
 
 # ---------------------------------------------------
 # 1. Configuração do modelo LLM
 # ---------------------------------------------------
+# Via Hugging-Faces
 if not usar_ollama:
     from langchain_huggingface import HuggingFacePipeline
 
@@ -60,17 +74,22 @@ if not usar_ollama:
     print(teste[0]["generated_text"])
 
     llm = HuggingFacePipeline(pipeline=hf_pipeline)
-    
+
+# Via Ollama    
 else:
     from langchain.llms import Ollama
-    # Certifique-se de que o modelo escolhido está disponível (ex: via 'ollama pull llama3')
+    
+    # Todos os modelos que seram testados, estão aqui.
     model_llama3_1 = "llama3.1:latest" 
     model_dolphin3 = "dolphin3:latest"
     model_zephyr = "zephyr:latest"
     model_sailor2 = "sailor2:latest"
+
+    # Estes dois modelos são modelos usados para possiveis métricas futuras com Reasoning
     model_deepseek_r1_llama = "deepseek-r1:8b"
     model_gemma3_12b = "gemma3:12b"
 
+    # Escolha e predefinição dos modelos
     modelo_ollama = model_dolphin3
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.3,  # Respostas mais conservadoras
@@ -82,12 +101,15 @@ else:
 # ---------------------------------------------------
 # 2. Carregando e preparando o conteúdo da página
 # ---------------------------------------------------
+
+# Página em Português Brasileiro escolhida
 url_pln_br = "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
 
+# As quatro páginas em Inglês escolhidas
 url_pln_en_nlp = "https://en.wikipedia.org/wiki/Natural_language_processing"
 url_pln_en_brazil = "https://en.wikipedia.org/wiki/Brazil"
 
-
+# Carregamento do documento via LangChain
 loader = UnstructuredURLLoader(urls=[url_pln_en_brazil])
 docs = loader.load()
 
@@ -97,6 +119,7 @@ else:
     print("\nDocumento carregado com sucesso. Exibindo os primeiros 200 caracteres do primeiro documento:")
     print(docs[0].page_content[:200])
 
+# Preparação via LangChain para formato de Embeddings
 text_splitter = CharacterTextSplitter(separator=" ", chunk_size=512, chunk_overlap=50)
 docs = text_splitter.split_documents(docs)
 
@@ -108,6 +131,10 @@ for i, doc in enumerate(docs[:3]):
 # ---------------------------------------------------
 # 3. Criando o vetor de similaridade com Chroma
 # ---------------------------------------------------
+# Escolha do modelo de embeddings
+# Neste caso o uso foi o all-Mini, apenas por testes previamente realiados.
+# Ambos os modelos são bons e promissores
+
 all_mini = "sentence-transformers/all-MiniLM-L6-v2"
 snowflake = "Snowflake/snowflake-arctic-embed-l-v2.0"
 
@@ -153,6 +180,11 @@ if usar_few_shot:
 # ---------------------------------------------------
 # 5. Configurando o chain de QA
 # ---------------------------------------------------
+# Ajuste realizado para validar o few-shot
+# Somado a definição da chain_type "Refine", para garantir que ele tenha uma escolha individual de arquivos
+# Não é necessario, porém assegura que a LLM tente responder da melhor forma que ela conseguir
+# https://js.langchain.com/v0.1/docs/modules/chains/document/refine/
+
 if usar_few_shot:
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
