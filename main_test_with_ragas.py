@@ -66,8 +66,9 @@ else:
     model_sailor2 = "sailor2:latest"
     model_deepseek_r1_llama = "deepseek-r1:8b"
     model_gemma3_12b = "gemma3:12b"
+    model_mistral = "mistral:latest"
 
-    modelo_ollama = model_dolphin3
+    modelo_ollama = model_mistral
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.3,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
