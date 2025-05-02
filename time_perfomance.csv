@@ -1,3 +1,4 @@
 model,page,time
 mistral,deepseek,104.04s
 llama_3.1,deepseek,112.00s
+dolphin3,deepseek,109.64s
