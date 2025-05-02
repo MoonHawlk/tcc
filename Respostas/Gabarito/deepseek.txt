@@ -1,0 +1,11 @@
+gabarito
+1 - DeepSeek is a chatbot developed by the Chinese artificial intelligence company
+2 - DeepSeek was released on January 10, 2025.
+3 - The release of DeepSeek has been referred to as a "Sputnik moment" for American AI, indicating a significant challenge to U.S. AI dominance.
+4 - DeepSeek is available as a web app and on Android and iOS operating systems.
+5 - The web and mobile apps of DeepSeek are proprietary, while the models (R1 and V3) are released under the MIT License. 
+6 - DeepSeek-V3 was trained using approximately 2,000 GPUs, specifically the H800 series chips from Nvidia.
+7 - Training DeepSeek-V3 took around 55 days and cost approximately US$5.58 million.
+8 - On January 27, 2025, DeepSeek-R1 surpassed ChatGPT as the most-downloaded freeware app on the iOS App Store in the United States, resulting in an 18% drop in Nvidia’s share price.
+9 - After a "large-scale" cyberattack disrupted its servers, DeepSeek limited new user registration to phone numbers from mainland China, email addresses, or Google account logins. 
+10 - On April 3, 2025, DeepSeek collaborated with researchers at Tsinghua University to publish a paper unveiling a new model that combines generative reward modeling (GRM) and self-principled critique tuning (SPCT), referred to as DeepSeek-GRM.
