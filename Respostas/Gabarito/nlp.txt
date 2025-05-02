@@ -1,0 +1,11 @@
+gabarito
+1 - Natural Language Processing (NLP) is a subfield of computer science and artificial intelligence that focuses on enabling computers to process and understand human language. It is closely related to information retrieval, knowledge representation, and computational linguistics.
+2 - Major tasks in NLP include speech recognition, text classification, natural-language understanding, and natural-language generation.
+3 - Natural Language Processing has its roots in the 1950s. In 1950, Alan Turing published an article titled "Computing Machinery and Intelligence," which proposed what is now called the Turing test as a criterion of intelligence.
+4 - The Georgetown experiment in 1954 involved the fully automatic translation of more than sixty Russian sentences into English. The authors claimed that within three to five years, machine translation would be a solved problem. However, real progress was much slower.
+5 - Notable NLP systems developed in the 1960s include SHRDLU, a natural language system working in restricted "blocks worlds" with limited vocabularies, and ELIZA, a simulation of a Rogerian psychotherapist created by Joseph Weizenbaum between 1964 and 1966.
+6 - Starting in the late 1980s, there was a revolution in NLP with the introduction of machine learning algorithms for language processing. This shift was due to the steady increase in computational power and the gradual lessening of the dominance of Chomskyan theories of linguistics.
+7 - Common applications of NLP include speech recognition, text classification, machine translation, sentiment analysis, and information retrieval.
+8 - The Lesk algorithm is associated with semantics in NLP. It is used for word sense disambiguation by determining the meaning of a word based on the overlap between dictionary definitions.
+9 - The Turing test, proposed by Alan Turing in 1950, serves as a criterion of intelligence. It includes a task that involves the automated interpretation and generation of natural language, which is a fundamental aspect of NLP.
+10 - The introduction of machine learning algorithms in the late 1980s revolutionized NLP by enabling the development of statistical models that could learn from data, leading to significant advancements in language processing tasks.
