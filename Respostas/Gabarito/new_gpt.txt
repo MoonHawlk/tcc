@@ -1,0 +1,11 @@
+gabarito
+1 - GPT-4.5, codenamed "Orion," is a large language model developed by OpenAI as part of its GPT series. It was released on February 27, 2025. The model is accessible to Plus and Pro users through the model picker on web, mobile, and desktop platforms, with plans to expand access to other tiers. It can also be accessed via the OpenAI API or the OpenAI Developer Playground.
+2 - GPT-4.5 was primarily trained using unsupervised learning, enhancing its ability to recognize patterns, draw connections, and generate creative insights. This approach was combined with supervised fine-tuning and reinforcement learning from human feedback. The model was trained using Microsoft Azure.
+3 - GPT-4.5 was tested on the Massive Multitask Language Understanding (MMLU) test set, covering 15 languages: Arabic, Bengali, Chinese, English, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Portuguese, Spanish, Swahili, and Yoruba. The model outperformed GPT-4o across all these languages.
+4 - As of February 2025, using GPT-4.5 through OpenAI's API costs $75 per million input tokens and $150 per million output tokens. In comparison, GPT-4o costs $2.50 per million input tokens and $10 per million output tokens.
+5 - Yes, a pre-print study published in March 2025 found that GPT-4.5 passed the Turing Test.
+6 - Cade Metz, writing for The New York Times, stated that GPT-4.5 "signifies the end of an era" and was "unlikely to generate as much excitement as GPT-4." Other outlets, such as The Verge and Axios, also covered the model's release.
+7 - The model was tested 15 different languages, namely Arabic, Bengali, Chinese, English, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Portuguese, Spanish, Swahili, and Yoruba
+8 - GPT-4.5 can be accessed by Plus and Pro users through the model picker on web, mobile, and desktop, with plans to expand to other tiers. It can also be accessed via the OpenAI API or the OpenAI Developer Playground.
+9 - The model was primarily trained using unsupervised learning, which improves its ability to recognize patterns.
+10 - Sam Altman described GPT-4.5 as a "giant, expensive model".

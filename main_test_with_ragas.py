@@ -100,7 +100,7 @@ url_ptbr_pln_br = "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natu
 # As quatro páginas em Inglês escolhidas
 url_en_nlp = "https://en.wikipedia.org/wiki/Natural_language_processing"
 url_en_brazil = "https://en.wikipedia.org/wiki/Brazil"
-url_en_gpt_new = ""
+url_en_new_gpt = "https://en.wikipedia.org/wiki/GPT-4.5"
 url_en_new_deepseek = "https://en.wikipedia.org/wiki/DeepSeek_%28chatbot%29"
 
 # Carregamento do documento via LangChain
