@@ -1,0 +1,11 @@
+gabarito
+1 - Processamento de linguagem natural é uma subárea da ciência da computação, da inteligência artificial e da linguística que estuda a geração automática de texto compreensível por humanos e a compreensão automática de línguas humanas em representações formais manipuláveis por programas de computador.
+2 - O PLN combina conhecimentos de ciência da computação, inteligência artificial e linguística.
+3 - Entre os principais desafios do PLN estão a compreensão de língua natural, a extração de sentido a partir de expressões humanas e a geração de texto natural coerente e fluido.
+4 - Dois exemplos famosos são o SHRDLU, que manipulava um “mundo de blocos” limitado, e o ELIZA, um programa que simulava um psicoterapeuta. 
+5 - Foi um experimento de tradução automática que traduziu mais de sessenta frases do russo para o inglês, antecipando que a tradução automática seria solucionada em poucos anos.
+6 - A partir do final dos anos 1980, houve uma revolução com a introdução de algoritmos de aprendizagem automática (aprendizado de máquina) no processamento de linguagem.
+7 - A sumarização automática produz um resumo legível a partir de um texto maior, frequentemente utilizada para gerar resumos de artigos jornalísticos, especialmente na seção financeira. 
+8 - O NER identifica, em um fluxo de texto, quais trechos correspondem a nomes próprios (pessoas, locais, organizações) e classifica cada um de acordo com seu tipo.
+9 - A avaliação intrínseca mede o desempenho de um sistema de PLN isoladamente, comparando sua saída a um padrão-ouro; já a avaliação extrínseca analisa o sistema integrado em um cenário de uso real, considerando sua utilidade para uma tarefa maior ou para o usuário final.
+10 - Eles aprendem automaticamente a focar nos casos mais comuns sem necessidade de codificar regras manualmente e produzem modelos mais robustos a entradas desconhecidas ou com erros.
