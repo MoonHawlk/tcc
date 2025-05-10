@@ -5,5 +5,5 @@ dolphin3,deepseek,109.64s
 zephyr,deepseek,132.50s
 llama_3.1,nlp,150.33s
 mistral,nlp,168.27s
-dolphin3,nlp,
+dolphin3,nlp,138.61s
 zephyr,nlp,
