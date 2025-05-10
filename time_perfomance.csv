@@ -7,7 +7,11 @@ llama_3.1,nlp,150.33s
 mistral,nlp,168.27s
 dolphin3,nlp,138.61s
 zephyr,nlp,169.08s
-llama_3.1,brazil,
-mistral,brazil,
-dolphin3,brazil,
-zephyr,brazil,
+llama_3.1,brazil,116.49s
+mistral,brazil,127.08s
+dolphin3,brazil,112.02s
+zephyr,brazil,141.05s
+llama_3.1,new_gpt,
+mistral,new_gpt,
+dolphin3,new_gpt,
+zephyr,new_gpt,
