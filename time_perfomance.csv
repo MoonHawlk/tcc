@@ -11,7 +11,7 @@ llama_3.1,brazil,116.49s
 mistral,brazil,127.08s
 dolphin3,brazil,112.02s
 zephyr,brazil,141.05s
-llama_3.1,new_gpt,
+llama_3.1,new_gpt,117.83s
 mistral,new_gpt,
 dolphin3,new_gpt,
 zephyr,new_gpt,
