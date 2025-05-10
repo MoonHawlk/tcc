@@ -1,0 +1,114 @@
+pergunta,resposta
+O que é processamento de linguagem natural (PLN)?,"Com base no contexto fornecido, podemos refinar a resposta original para melhor atender à pergunta.
+
+A resposta original era: ""Processamento de língua natural (PLN) é uma subárea da ciência da computação, inteligência artificial e da informática.""
+
+Com o contexto adicional, podemos incluir alguns exemplos específicos de técnicas e ferramentas utilizadas no processamento de linguagem natural:
+
+""A resposta para a pergunta é: O Processamento de Língua Natural (PLN) é uma subárea da ciência da computação, inteligência artificial e da informática que envolve técnicas como Linguagem Natural Controlada, Processamento Linguístico Profundo, Auxílio à Leitura de Línguas Estrangeiras, Auxílio à Escrita em Língua Estrangeira, Tecnologia da Linguagem, Alocação de Dirichlet Latente (LDA), Indexação Semântica Latente e outras ferramentas e técnicas listadas abaixo.""
+
+No entanto, é importante notar que a resposta original já era precisa e abrangente. O contexto adicional fornece exemplos específicos, mas não altera significativamente a definição geral do Processamento de Língua Natural.
+
+Portanto, podemos retornar à resposta original refinada:
+
+""A resposta para a pergunta é: O Processamento de Língua Natural (PLN) é uma subárea da ciência da computação, inteligência artificial e da informática que envolve técnicas avançadas para processar e analisar linguagem humana.""
+
+E, considerando o contexto adicional sobre a relação entre PLN e aprendizagem de língua natural (NLL), podemos incluir uma breve menção a isso:
+
+""A resposta para a pergunta é: O Processamento de Língua Natural (PLN) é uma subárea da ciência da computação, inteligência artificial e da informática que envolve técnicas avançadas para processar e analisar linguagem humana. Além disso, o PLN está intimamente relacionado com a aprendizagem de língua natural (NLL), que é um subcampo dedicado a abordagens de aprendizado para lidar com linguagem humana."""
+Quais disciplinas o PLN combina?,"Com o novo contexto, podemos refinar a resposta original.
+
+A resposta é Ciência da Computação e Inteligência Artificial, mas também inclui outras disciplinas como Linguística, Lógica Matemática e Estatística, pois o Processamento de Linguagem Natural (PLN) combina conceitos e técnicas dessas áreas para analisar e processar linguagem humana.
+
+Além disso, é importante destacar que a área do PLN também se beneficia da introdução de algoritmos de aprendizagem automática, o que revolucionou o campo no final dos anos 1980. Isso significa que as disciplinas envolvidas no PLN não apenas incluem Ciência da Computação e Inteligência Artificial, mas também outras áreas como Linguística, Lógica Matemática e Estatística, além de técnicas de aprendizagem automática."
+Quais são alguns desafios do PLN?,"Com base no contexto fornecido, podemos refinar a resposta anterior para melhor atender à pergunta sobre os desafios do Processamento de Linguagem Natural (PLN). Alguns dos desafios mencionados anteriormente permanecem válidos, mas o novo contexto adiciona uma perspectiva adicional:
+
+1. **Gerar recursos relevantes**: A aplicação de algoritmos de aprendizado de máquina depende de um grande conjunto de ""recursos"" gerados a partir de dados de entrada. Isso sugere que um dos desafios do PLN é criar ou obter esses recursos de forma eficaz.
+
+2. **Flexibilidade e precisão**: A menção à produção de sistemas de regras rígidas semelhantes aos sistemas de regras manuscritos mais comuns pode indicar que um desafio do PLN é equilibrar a flexibilidade necessária para lidar com as complexidades da linguagem natural e a precisão dos resultados.
+
+3. **Adaptação à pesquisa**: A concentração crescente da pesquisa em aplicar algoritmos de aprendizado de máquina às tarefas do PLN pode sugerir que um desafio é manter o ritmo com as novas tecnologias e abordagens, garantindo que os avanços sejam incorporados de forma eficaz.
+
+4. **Representação linguística**: O fato de que algoritmos como árvores de decisão produzem sistemas de regras pode indicar que um desafio do PLN é representar adequadamente a complexidade da linguagem natural em termos computacionais.
+
+5. **Definição de padrões de excelência**: O novo contexto destaca a dificuldade em definir precisamente um padrão de excelência para muitos problemas de PLN, o que pode ser um desafio adicional. Isso pode exigir recursos adicionais e métodos criativos para superar essa barreira.
+
+Esses são alguns dos desafios potenciais do Processamento de Linguagem Natural, considerando tanto a informação original quanto o contexto adicional fornecido."
+Quais foram dois sistemas de PLN bem-sucedidos desenvolvidos na década de 1960?,"Com base no contexto fornecido e considerando os avanços na área da Processamento de Linguagem Natural (PLN) durante a década de 1960, podemos inferir que o texto está se referindo a sistemas de PLN bem-sucedidos desenvolvidos nessa época.
+
+Dentre os sistemas de PLN bem-sucedidos da década de 1960, alguns exemplos notáveis incluem:
+
+1. **ELIZA** (1966): Desenvolvido por Joseph Weizenbaum no MIT, ELIZA foi um dos primeiros programas de computador capazes de simular uma conversa com um ser humano. Embora limitado em sua capacidade de entender o contexto e a linguagem natural, ELIZA foi um marco importante na área da PLN.
+
+2. **SHRDLU** (1968): Desenvolvido por John McCarthy no MIT, SHRDLU era um programa que podia entender e manipular objetos em uma sala virtual. Ele foi capaz de realizar tarefas como mover objetos e responder a perguntas sobre a disposição desses objetos.
+
+Esses sistemas representam avanços significativos na área da PLN durante a década de 1960, embora tenham sido limitados em suas capacidades comparadas às tecnologias atuais."
+O que foi a Experiência de Georgetown de 1954?,"A resposta original já era precisa e não há necessidade de refinar ou acrescentar detalhes adicionais com o contexto fornecido. A Experiência de Georgetown de 1954 foi um experimento que envolveu a tradução automática de mais de sessenta frases em francês para inglês, utilizando métodos estatísticos. Este experimento é considerado um marco na área da tradução automática e foi conduzido até o final dos anos 80, quando os primeiros sistemas estatísticos de tradução foram desenvolvidos."
+Que algorítmos introduziram a revolução no PLN no final dos anos 1980?,"Com base no contexto fornecido, podemos refinar a resposta original para melhor atender à pergunta feita.
+
+A resposta original era:
+
+Algoritmos de Aprendizado de Máquina (Machine Learning) e Redes Neurais Artificiais.
+
+No entanto, o contexto fornece informações sobre campanhas de avaliação de textos escritos realizadas no final dos anos 1980, como a comparação entre abordagens baseadas em regras e estatísticas. Além disso, menciona projetos que compararam gramáticas de frase-estrutura, tarefas como resumo, tradução e pesquisa, e campanhas sobre marcadores morfológicos.
+
+Com essas informações, podemos inferir que a resposta original está correta, mas pode não ser completa. Algoritmos de Aprendizado de Máquina (Machine Learning) e Redes Neurais Artificiais foram, na verdade, uma evolução natural da área da Processamento de Linguagem Natural (PLN), que começou a se desenvolver nos anos 1980 com as primeiras campanhas de avaliação de textos escritos.
+
+Portanto, a resposta refinada é:
+
+Algoritmos de Aprendizado de Máquina (Machine Learning) e Redes Neurais Artificiais, que representam uma evolução natural da área da Processamento de Linguagem Natural (PLN), que começou a se desenvolver nos anos 1980 com as primeiras campanhas de avaliação de textos escritos.
+
+Essa resposta reflete melhor o contexto fornecido e responde à pergunta feita."
+O que faz a tarefa de sumarização automática?,"Com base no contexto fornecido, podemos inferir que a tarefa de sumarização automática envolve automatizar o processo de resumir um texto original em uma versão mais concisa e essencial. Isso é sugerido pela menção à ""definição de problema bem especificada"" e à ""métrica padrão para avaliar a tarefa"", que indicam que há critérios estabelecidos para medir o sucesso da sumarização automática.
+
+No entanto, com o novo contexto fornecido, podemos entender melhor como essa tarefa é realizada. A definição de um padrão de excelência pode ser complexa e custosa, mas a avaliação automática pode ser repetida quantas vezes for necessário sem custos adicionais desordenados.
+
+Portanto, podemos concluir que a tarefa de sumarização automática envolve:
+
+* Automatizar o processo de resumir textos originais;
+* Reduzir o texto original em uma versão mais concisa e essencial;
+* Utilizar critérios estabelecidos para medir o sucesso da sumarização;
+* Utilizar avaliação automática para comparar a saída do sistema com um padrão de excelência, que pode ser complexo e custoso de definir.
+
+Além disso, é interessante notar que a tarefa de tradução automática também está relacionada à área de Processamento de Linguagem Natural (PLN), como mencionado no contexto. No entanto, o foco da pergunta é sobre sumarização automática, e não sobre tradução.
+
+Portanto, a resposta final é:
+
+A tarefa de sumarização automática envolve automatizar o processo de resumir textos originais em uma versão mais concisa e essencial, utilizando critérios estabelecidos para medir o sucesso da sumarização e avaliação automática para comparar a saída do sistema com um padrão de excelência."
+O que é o reconhecimento de entidade nomeada (NER)?,"Com o novo contexto fornecido, podemos refinar a resposta original para melhor atender à pergunta.
+
+A resposta original era:
+
+O reconhecimento de entidade nomeada (NER) é um processo de análise de texto que visa identificar e classificar as entidades mencionadas no texto com base em seu nome próprio.
+
+Com o novo contexto, podemos acrescentar mais detalhes para torná-la mais precisa. O NER é um processo de análise de texto que visa identificar e classificar as entidades mencionadas no texto com base em seu nome próprio (nome de pessoa, local, organização, etc.), utilizando técnicas de aprendizado de máquina ou sistemas baseados em regras para melhorar a precisão e lidar com entradas imprevistas ou errôneas.
+
+Além disso, o NER é frequentemente treinado usando recursos anotados à mão, que são conjuntos de dados rotulados manualmente com as entidades corretas. Isso permite ao algoritmo aprender a identificar e classificar essas entidades de forma precisa.
+
+Portanto, a resposta refinada é:
+
+O reconhecimento de entidade nomeada (NER) é um processo de análise de texto que visa identificar e classificar as entidades mencionadas no texto com base em seu nome próprio, utilizando técnicas de aprendizado de máquina ou sistemas baseados em regras para melhorar a precisão e lidar com entradas imprevistas ou errôneas. Ele é frequentemente treinado usando recursos anotados à mão, que são conjuntos de dados rotulados manualmente com as entidades corretas."
+O que distingue avaliação intrínseca de avaliação extrínseca em PLN?,"Com o novo contexto fornecido, posso refinar a resposta original para melhor atender à pergunta.
+
+A avaliação intrínseca de um sistema PNL (Processamento de Linguagem Natural) considera o desempenho do sistema isoladamente e em relação a um resultado padrão-excelência. Isso significa que a avaliação é feita apenas com base nos parâmetros internos do sistema, como velocidade, confiabilidade e consumo de recursos.
+
+Já a avaliação extrínseca considera o sistema PNL em um cenário mais complexo, como parte de um sistema maior ou função para um usuário humano. Nesse caso, a avaliação é feita com base na interação do sistema com outros componentes ou usuários, e não apenas nos parâmetros internos.
+
+Portanto, a principal diferença entre avaliação intrínseca e extrínseca em PLN é que a primeira se concentra no desempenho isolado do sistema, enquanto a segunda considera o sistema como parte de um contexto mais amplo.
+
+Além disso, o contexto fornecido menciona exemplos de avaliações em larga escala realizadas em diferentes projetos e campanhas, como CoNLL, ANR-Passage, EVALITA, que também se baseiam na distinção entre avaliação intrínseca e extrínseca. Essas avaliações visam comparar o desempenho de diferentes sistemas PNL em tarefas específicas, considerando tanto os parâmetros internos quanto a interação com usuários ou outros componentes.
+
+Portanto, a resposta refinada é:
+
+A principal diferença entre avaliação intrínseca e extrínseca em PLN é que a primeira se concentra no desempenho isolado do sistema, enquanto a segunda considera o sistema como parte de um contexto mais amplo, incluindo a interação com usuários ou outros componentes."
+Quais são duas vantagens de sistemas de PLN baseados em aprendizagem de máquina em relação aos sistemas baseados em regras?,"Com base no contexto fornecido, posso refinar a resposta original para melhor atender à pergunta.
+
+Duas vantagens de sistemas de PLN baseados em aprendizagem de máquina em relação aos sistemas baseados em regras são:
+
+1. **Flexibilidade e capacidade de aprendizado**: Os sistemas de PLN baseados em Aprendizado de Máquina podem aprender a partir dos dados e adaptar-se às mudanças no comportamento linguístico, o que não é possível com os sistemas baseados em Regras.
+2. **Capacidade de lidar com complexidade linguística**: Os algoritmos de Aprendizado de Máquina podem lidar com a complexidade da linguagem natural de forma mais eficaz do que os sistemas baseados em Regras, que podem produzir resultados rígidos e inflexíveis.
+3. **Economia de tempo**: a criação de mais dados para entrada em sistemas de aprendizado de máquina requer apenas um aumento correspondente no número de horas trabalhadas, enquanto aumentar a complexidade das regras em sistemas baseados em Regras pode tornar-se uma tarefa muito mais difícil e incontrolável.
+
+Além disso, o contexto fornecido destaca ainda outra vantagem dos sistemas de PLN baseados em Aprendizado de Máquina: **Economia de tempo**: a criação de mais dados para entrada em sistemas de aprendizado de máquina requer apenas um aumento correspondente no número de horas trabalhadas, enquanto aumentar a complexidade das regras em sistemas baseados em Regras pode tornar-se uma tarefa muito mais difícil e incontrolável.
+
+Essas são as três vantagens dos sistemas de PLN baseados em Aprendizado de Máquina em relação aos sistemas baseados em Regras."
