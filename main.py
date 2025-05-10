@@ -74,14 +74,14 @@ else:
     model_llama3_1 = "llama3.1:latest" 
     model_dolphin3 = "dolphin3:latest"
     model_zephyr = "zephyr:latest"
-    model_sailor2 = "sailor2:latest" # Removido posteriormente por falta de benchmarks
     model_mistral = "mistral:latest"
-
+    model_sailor2 = "sailor2:latest" # Removido posteriormente por falta de benchmarks
+    
     # Estes dois modelos são modelos usados para possiveis métricas futuras com Reasoning
     model_deepseek_r1_llama = "deepseek-r1:8b"
     model_gemma3_12b = "gemma3:12b"
 
-    modelo_ollama = model_dolphin3
+    modelo_ollama = model_zephyr
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.1,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
