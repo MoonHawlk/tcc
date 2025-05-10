@@ -12,6 +12,6 @@ mistral,brazil,127.08s
 dolphin3,brazil,112.02s
 zephyr,brazil,141.05s
 llama_3.1,new_gpt,117.83s
-mistral,new_gpt,
+mistral,new_gpt,110.01s
 dolphin3,new_gpt,122.67s
 zephyr,new_gpt,126.74s
