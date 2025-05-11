@@ -16,6 +16,6 @@ mistral,new_gpt,110.01s
 dolphin3,new_gpt,122.67s
 zephyr,new_gpt,126.74s
 llama_3.1,PLN,199.02s
-mistral,PLN,
+mistral,PLN,158.74s
 dolphin3,PLN,237.59s
 zephyr,PLN,186.43s
