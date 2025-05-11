@@ -1,0 +1,107 @@
+pergunta,resposta
+O que é processamento de linguagem natural (PLN)?,"O Processamento de Língua Natural (PLN), também conhecido como Inteligência Artificial em Linguística ou Ciência da Computação em Linguística, é uma área do estudo e desenvolvimento de sistemas computacionais que podem compreender, gerar e processar linguagem humana. Isso inclui tarefas como a análise de sentenças, o reconhecimento de voz, a tradução automática, a resolução de perguntas, entre outras. O PLN é uma subárea importante da Inteligência Artificial (IA) e tem aplicações em vários campos, incluindo sistemas de busca, assistentes virtuais, chatbots, sistemas de recomendação e muito mais.
+
+O Processamento Linguístico Profundo (PLP) é um ramo do PLN que se concentra na análise profunda da linguagem natural para extrair significado e contexto. Ferramentas como a Alocação de Dirichlet Latente (LDA), Indexação Semântica Latente, e o Mapa de LRE são exemplos de técnicas utilizadas no PLP.
+
+Além disso, o PLN pode incluir auxílio à leitura e escrita em línguas estrangeiras, tecnologia da linguagem, programação em língua natural, reificação (linguística), dobradura semântica, sistemas de diálogo falado, vetor do pensamento e pesquisa. Esses elementos são todos interconectados e trabalham juntos para criar sistemas que podem compreender e gerar linguagem humana de maneira eficaz.
+
+Portanto, o PLN é uma área complexa e multifacetada da ciência da computação e inteligência artificial que visa melhorar a comunicação entre humanos e máquinas através do processamento inteligente da linguagem natural."
+Quais disciplinas o PLN combina?,"O Processamento de Língua Natural (PLN), também conhecido como Inteligência Computacional em Línguas Naturais ou Ciência da Computação em Línguas Naturais, é uma subárea interdisciplinar que combina conceitos e técnicas de várias disciplinas. O PLN geralmente envolve elementos de:
+
+1. **Ciência da Computação**: Pois o processamento de linguagem natural envolve a utilização de algoritmos e programas para analisar, entender e gerar texto.
+
+2. **Inteligência Artificial (IA)**: Uma vez que o PLN é uma parte importante da IA, ele utiliza técnicas de aprendizado de máquina, lógica, sistemas expert e outras áreas da IA para modelar e compreender linguagem humana.
+
+3. **Linguística**: O PLN emprega princípios da linguística para entender a estrutura, o significado e o uso das línguas humanas.
+
+4. **Psicolinguística**: Pois estuda como as pessoas processam a linguagem, o que pode ser útil no desenvolvimento de sistemas que interagem com humanos.
+
+5. **Estatística**: O PLN utiliza técnicas estatísticas para analisar grandes conjuntos de dados linguísticos e identificar padrões.
+
+6. **Mecânica de Linguagem Natural (NLP)**: Uma subárea do PLN focada no desenvolvimento de sistemas que podem entender, gerar e processar texto ou falas em humanos.
+
+7. **Machine Learning**: O PLN utiliza técnicas de aprendizado de máquina para permitir que os sistemas aprendam a partir dos dados linguísticos e melhorarem suas habilidades de compreensão e geração de texto ao longo do tempo.
+
+8. **Análise de Conhecimento (KA)**: Para armazenar, recuperar e utilizar conhecimento em forma de dados estruturados para o processamento de linguagem natural.
+
+Essas disciplinas fornecem a base teórica e metodológica que permite o desenvolvimento de sistemas capazes de compreender e gerar texto, responder perguntas, traduzir entre línguas, realizar análise de sentimento e outras tarefas complexas envolvendo processamento de linguagem natural.
+
+Além disso, o PLN também utiliza técnicas de visão por computador para analisar dados não estruturados como imagens e sons, além de incorporar conhecimentos específicos do domínio que está sendo analisado. Por exemplo, um sistema de PLN desenvolvido para entender textos médicos precisaria de conhecimento especializado em medicina para fornecer respostas precisas às perguntas feitas pelos usuários.
+
+Muitas classes diferentes de algoritmos de aprendizado de máquina foram aplicadas a tarefas de PLN. Esses algoritmos tomam como entrada um grande conjunto de ""recursos"" que são gerados a partir de dados de entrada.
+
+Alguns dos algoritmos mais usados, como árvores de decisão, produziam sistemas de regras rígidas semelhantes aos sistemas de regras manuscritos mais comuns. No entanto, cada vez mais, a pesquisa tem se concentrado em algoritmos que podem aprender e adaptar-se ao longo do tempo, como redes neurais e modelos baseados em funções de valor.
+
+Esses avanços têm permitido o desenvolvimento de sistemas de PLN cada vez mais sofisticados e capazes de realizar tarefas complexas, como a tradução automática entre idiomas, a análise de sentimentos em textos e a geração de texto baseada em padrões aprendidos.
+
+Adicionando ao contexto fornecido, até a década de 1980, a maioria dos sistemas de PLN se baseava em conjuntos complexos de regras manuscritas. A partir do final dos anos 1980, no entanto, houve uma revolução no PLN com a introdução de algoritmos de aprendizagem automática (aprendizado de máquina), que permitiram aos sistemas aprenderem e adaptarem-se ao longo do tempo, em vez de dependerem exclusivamente de regras manuscritas. Isso abriu caminho para o desenvolvimento de sistemas mais flexíveis e eficientes no processamento de linguagem natural.
+
+Os exemplos incluídos são:
+
+- **Ciência da Computação**: Algoritmos e programas utilizados para analisar, entender e gerar texto.
+- **Inteligência Artificial (IA)**: Técnicas como aprendizado de máquina, lógica e sistemas expert aplicadas ao processamento de linguagem natural.
+- **Linguística**: Princípios empregados para compreender a estrutura, o significado e o uso das línguas humanas.
+- **Psicolinguística**: Estudos sobre como as pessoas processam a linguagem, que são úteis no desenvolvimento de sistemas que interajam com humanos.
+- **Estatística**: Técnicas utilizadas para analisar grandes conjuntos de dados linguísticos e identificar padrões.
+- **Mecânica de Linguagem Natural (NLP)**: Desenvolvimento de sistemas capazes de entender, gerar e processar texto ou falas em humanos.
+- **Machine Learning**: Técnicas de aprendizado de máquina aplicadas para permitir que os sistemas aprendam a partir dos dados linguísticos e melhorem suas habilidades de compreensão e geração de texto ao longo do tempo.
+- **Análise de Conhecimento (KA)**: Armazenamento, recuperação e utilização de conhecimento em forma de dados estruturados para o processamento de linguagem natural.
+
+Essas disciplinas fornecem uma base interdisciplinar que permite o desenvolvimento de sistemas avançados no processamento de linguagem natural."
+Quais são alguns desafios do PLN?,"Alguns dos desafios do PLN (Processamento de Línguas Naturais) incluem:
+
+1. Ambiguidade e ambientes incertos: A linguagem humana é frequentemente ambígua, permitindo múltiplas interpretações para a mesma frase ou sentença. Além disso, o contexto pode mudar rapidamente, tornando desafiador para os algoritmos prever com precisão as intenções do usuário.
+
+2. Variação linguística: Diferentes pessoas falam de maneiras diferentes e usam vocabulário específico a sua região ou cultura. Isso faz com que o PLN tenha dificuldade em entender e processar corretamente todas as variações da língua.
+
+3. Grande quantidade de dados: Algoritmos de PLN precisam ser treinados em grandes conjuntos de dados para aprender a reconhecer padrões na linguagem humana. Contudo, o armazenamento e processamento de tanta informação pode exigir recursos computacionais significativos.
+
+4. Complexidade da linguagem: A língua humana é complexa e multifacetada, com nuances que são difíceis de serem capturadas por algoritmos simples ou tradicionais. O PLN precisa lidar com a sintaxe, semântica, pragmática e outras características da linguagem.
+
+5. Desafio de criar sistemas efetivos: Apesar de muitos avanços no campo do PLN, ainda há um longo caminho para criar sistemas que possam compreender e responder adequadamente a todas as nuances da comunicação humana.
+
+Adicionalmente, em muitos casos, procedimentos automáticos podem ser definidos para avaliar um sistema de PLN, comparando sua saída com o padrão de excelência. Embora o custo de reproduzir o padrão de excelência possa ser bastante elevado, avaliação automática de bootstrapping sobre os mesmos dados de entrada pode ser repetida quantas vezes for necessário sem custos adicionais desordenados. No entanto, para muitos problemas de PLN a definição precisa de um padrão de excelência é uma tarefa complexa e pode se revelar desafiadora.
+
+Este artigo carece de reciclagem de acordo com o livro de estilo . Sinta-se livre para editá-lo(a) para que este(a) possa atingir um nível de qualidade superior . ( Dezembro de 2016 )
+
+Esta página cita fontes , mas que não cobrem todo o conteúdo . Ajude a inserir referências ( Encontre fontes: ABW • CAPES • Google ( notícias • livros • acadêmico ) ). ( Dezembro de 2016 )
+
+Processamento de língua natural (PLN) é uma subárea da ciência da computação, inteligência artificial e da
+"
+Quais foram dois sistemas de PLN bem-sucedidos desenvolvidos na década de 1960?,"Os dois sistemas de PLN (Programação Linear) bem-sucedidos desenvolvidos na década de 1960 foram o LISP e o APT. O LISP foi um dos primeiros linguagens de programação de alto nível, enquanto o APT foi usado para processar regras de inferência em sistemas de PLN."
+O que foi a Experiência de Georgetown de 1954?,"A Experiência de Georgetown de 1954 foi uma experiência inicial de tradução automática que envolveu a tradução de mais de sessenta frases. Foi realizada no ano de 1954 e é considerada um marco inicial na história do Processamento da Língua Natural (PLN). Essa experiência foi seguida por outras pesquisas em tradução automática até o final dos anos 80, quando os primeiros sistemas estatísticos de tradução foram desenvolvidos. Além disso, algoritmos de aprendizado de máquina foram aplicados a tarefas de PLN, incluindo árvores de decisão que produziam sistemas de regras rígidas semelhantes aos sistemas de regras manuscritas mais comuns. No entanto, a pesquisa tem se concentrado cada vez mais em algoritmos estatísticos e de aprendizado de máquina para o processamento de linguagem natural."
+Que algorítmos introduziram a revolução no PLN no final dos anos 1980?,"Os algoritmos que introduziram a revolução no Processamento de Lenguagem Natural (PLN) no final dos anos 1980 foram os sistemas baseados em aprendizado de máquina e inteligência artificial. Esses sistemas utilizaram técnicas como redes neurais, análise estatística e aprendizado supervisionado para melhorar a precisão e eficiência do PLN.
+
+A evolução do PLN nesse período foi marcada por uma transição de abordagens baseadas em regras para métodos mais flexíveis e adaptativos que utilizavam técnicas estatísticas e de aprendizado de máquina. Campanhas como a primeira campanha de avaliação de textos escritos, o projeto Parseval / GEIG, as campanhas no projeto Tipster e outras iniciativas ajudaram a avançar o campo ao comparar diferentes abordagens para tarefas como resumo, tradução e pesquisa. Essas inovações contribuíram significativamente para aprimorar a capacidade dos sistemas de PLN em compreender e gerar texto de maneira mais eficaz.
+
+Além disso, durante esse período, foram desenvolvidos vários programas notáveis de PLN, como MARGIE (SCHANK, 1975), SAM (CULLINGFORD, 1978), PAM (WILENSKY, 1978), TaleSpin (MEEHAN, 1976), QUALM (LEHNERT, 1977), Politics (CARBONELL, 1979) e Plot Units (LEHNERT, 1981). Também foram criados vários chatterbots, como PARRY, Racter e Jabberwacky.
+
+Até a década de 1980, a maioria dos sistemas de PLN se baseava em conjuntos complexos de regras manuscritas. A partir do final dos anos 1980, no entanto, houve uma revolução no PLN com a introdução de algoritmos de aprendizado automático (aprendizado de máquina), que permitiram aos sistemas aprender e melhorar suas habilidades com base em dados, em vez de depender exclusivamente de regras definidas por humanos. Essa mudança foi crucial para o desenvolvimento futuro do campo da PLN."
+O que faz a tarefa de sumarização automática?,"A tarefa de sumarização automática envolve o processamento de texto para criar uma versão mais concisa e abreviada do conteúdo original. Ela é usada para resumir artigos, notícias, documentos e outros tipos de texto longos em um formato mais curto e fácil de ler.
+
+Muitas vezes, procedimentos automáticos são definidos para avaliar um sistema de PLN (Processamento de Linguagem Natural), comparando sua saída com o padrão de excelência. Embora o custo de reproduzir o padrão de excelência possa ser bastante elevado, a avaliação automática de bootstrapping sobre os mesmos dados de entrada pode ser repetida quantas vezes for necessário sem custos adicionais desordenados. No entanto, para muitos problemas de PLN, a definição precisa de um padrão de excelência é uma tarefa complexa e pode se revelar desafiadora.
+
+A sumarização automática tem sido um campo ativo de pesquisa no Processamento de Linguagem Natural (PLN), com o objetivo de reduzir o tempo necessário para compreender grandes quantidades de texto. Embora tenhamos visto avanços significativos, ainda enfrentamos desafios em definir padrões de excelência e garantir que as respostas automáticas sejam precisas e informativas."
+O que é o reconhecimento de entidade nomeada (NER)?,"O reconhecimento de entidade nomeada (NER) é uma técnica de processamento de linguagem natural que identifica e categoriza nomes próprios em texto, como pessoas, lugares, organizações e datas. Em sistemas baseados em regras artesanais, a precisão pode ser aumentada aumentando a complexidade das regras, mas há um limite para a complexidade desses sistemas. No entanto, a criação de mais dados para entrada em sistemas de aprendizado de máquina requer simplesmente um aumento correspondente no número de horas trabalhadas.
+
+Sistemas baseados em aprender automaticamente as regras podem ser mais precisos simplesmente fornecendo mais dados de entrada. No entanto, os sistemas baseados em regras manuscritas ou sistemas de regras manuscritas que tomam decisões suaves têm dificuldade em lidar com entradas inesperadas (por exemplo, contendo palavras ou estruturas que não foram vistas antes) e a entradas errôneas (por exemplo, com palavras ou palavras incorretamente omitidas). Geralmente, lidar com essas entradas de forma manual é extremamente trabalhoso, propenso a erros e demorado.
+
+Muitas classes diferentes de algoritmos de aprendizado de máquina foram aplicadas a tarefas de PLN. Esses algoritmos tomam como entrada um grande conjunto de ""recursos"" que são gerados a partir de dados de entrada. Alguns dos algoritmos mais usados, como árvores de decisão, produziam sistemas de regras rígidas semelhantes aos sistemas de regras manuscritas mais comuns. No entanto, cada vez mais, a pesquisa tem se concentrado em desenvolver modelos que podem aprender automaticamente as regras e adaptar-se às novas informações e entradas inesperadas. Isso permite um reconhecimento de entidades nomeadas mais preciso e eficiente."
+O que distingue avaliação intrínseca de avaliação extrínseca em PLN?,"Avaliação intrínseca em PLN (Processos de Negócios) foca no desempenho do sistema isoladamente, avaliando-o com base em um padrão de excelência definido pelos avaliadores. Avaliação extrínseca, por outro lado, considera o sistema PLN dentro de um contexto mais amplo e complexo, como parte integrante de uma função ou sistema estranho para os usuários humanos. A distinção entre as duas reside na abordagem: a intrínseca olha para o desempenho do sistema em si, enquanto a extrínseca considera seu impacto e utilidade no contexto mais amplo da tarefa ou sistema ao qual ele está ligado.
+
+Avaliação em caixa preta é uma forma de avaliação intrínseca onde se executa o sistema PLN com um conjunto de dados de amostra para medir parâmetros como velocidade, confiabilidade e consumo de recursos. Avaliação da caixa de vidro, por outro lado, é uma forma de avaliação extrínseca que examina a concepção do sistema, os algoritmos implementados e outros aspectos relacionados à arquitetura do sistema.
+
+Avaliação em larga escala dos analisadores de dependência foi realizada no contexto das tarefas compartilhadas do CoNLL em 2006 e 2007. Na França, no âmbito do projecto ANR-Passage (final de 2007), foram comparados 10 analisadores para o francês. Em Itália, a campanha EVALITA foi realizada em 2007, 2009, 2011 e 2014 para comparar várias ferramentas de PLN e de voz para o site italiano - EVALITA.
+
+Diferentes tipos de avaliação
+
+Avaliação intrínseca vs. extrínseca"
+Quais são duas vantagens de sistemas de PLN baseados em aprendizagem de máquina em relação aos sistemas baseados em regras?,"Duas vantagens de sistemas de PLN baseados em aprendizado de máquina em relação aos sistemas baseados em regras são:
+
+1. Flexibilidade: Sistemas de PLN baseados em aprendizado de máquina podem adaptar-se e aprender com novos dados, enquanto os sistemas baseados em regras ficam restritos às regras definidas por humanos.
+
+2. Generalização: Algoritmos de aprendizado de máquina são capazes de generalizar conhecimento a partir de exemplos específicos, permitindo que eles sejam aplicados em uma gama mais ampla de situações do que os sistemas baseados em regras.
+
+Aumentar a complexidade das regras nos sistemas baseados em regras pode torná-los mais precisos, mas essa tarefa é muito mais difícil e há um limite para a complexidade desses sistemas. Em contrapartida, aumentar o número de dados de entrada em sistemas de aprendizado de máquina requer apenas mais horas trabalhadas.
+
+Os procedimentos de aprendizagem usados durante a aprendizagem da máquina focam-se automaticamente nos casos mais comuns, ao passo que quando se escrevem regras à mão, não é óbvio em que sentido o esforço deve ser dirigido. Além disso, os procedimentos de aprendizagem automática podem fazer uso de algoritmos de inferência estatística para produzir modelos que são robustos a entradas não familiares (por exemplo, contendo palavras ou estruturas desconhecidas), o que pode ser particularmente útil em domínios com grande variabilidade."
