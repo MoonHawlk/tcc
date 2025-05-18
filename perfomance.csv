@@ -12,7 +12,7 @@ mistral,brazil,127.08s,5,1,5,6,17
 dolphin3,brazil,112.02s,5,3,8,1,17
 zephyr,brazil,141.05s,5,1,5,6,17
 llama_3.1,new_gpt,117.83s,7,9,6,8,30
-mistral,new_gpt,110.01s,,,,,
+mistral,new_gpt,110.01s,3,4,5,6,18
 dolphin3,new_gpt,122.67s,4,3,5,5,17
 zephyr,new_gpt,126.74s,,,,,
 llama_3.1,PLN,199.02s,,,,,
