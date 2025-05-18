@@ -1,6 +1,6 @@
 model,page,time,Noise Robustness,Negative Rejection,Information Integration,Counterfactual Robustness,Score
 mistral,deepseek,104.04s,,,,,
-llama_3.1,deepseek,112.00s,,,,,
+llama_3.1,deepseek,112.00s,2,3,1,2,8
 dolphin3,deepseek,109.64s,2,3,3,2,10
 zephyr,deepseek,132.50s,,,,,
 llama_3.1,nlp,150.33s,,,,,
