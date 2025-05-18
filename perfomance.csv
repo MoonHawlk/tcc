@@ -17,5 +17,5 @@ dolphin3,new_gpt,122.67s,4,3,5,5,17
 zephyr,new_gpt,126.74s,2,3,7,7,19
 llama_3.1,PLN,199.02s,,,,,
 mistral,PLN,158.74s,,,,,
-dolphin3,PLN,237.59s,,,,,
+dolphin3,PLN,237.59s,3,3,9,9,24
 zephyr,PLN,186.43s,,,,,
