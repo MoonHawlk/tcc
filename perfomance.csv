@@ -3,7 +3,7 @@ mistral,deepseek,104.04s,1,1,3,3,8
 llama_3.1,deepseek,112.00s,2,3,1,2,8
 dolphin3,deepseek,109.64s,2,3,3,2,10
 zephyr,deepseek,132.50s,1,2,3,2,8
-llama_3.1,nlp,150.33s,,,,,
+llama_3.1,nlp,150.33s,5,6,7,7,25
 mistral,nlp,168.27s,,,,,
 dolphin3,nlp,138.61s,3,4,9,8,24
 zephyr,nlp,169.08s,,,,,
