@@ -81,7 +81,7 @@ else:
     model_deepseek_r1_llama = "deepseek-r1:8b"
     model_gemma3_12b = "gemma3:12b"
 
-    modelo_ollama = model_mistral
+    modelo_ollama = model_llama3_1
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.1,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
@@ -220,58 +220,58 @@ def unload_model(model_name: str):
 
 unload_model(modelo_ollama)
 
-# ---------------------------------------------------
-# 7. Avaliação com RAGAS
-# ---------------------------------------------------
-from ragas.metrics import faithfulness, answer_relevancy
-from ragas.embeddings import LangchainEmbeddingsWrapper
-from langchain.chat_models import ChatOpenAI
-from ragas.llms import LangchainLLMWrapper
-from ragas.run_config import RunConfig
-from ragas import evaluate
-from dotenv import load_dotenv
-import os
+# # ---------------------------------------------------
+# # 7. Avaliação com RAGAS
+# # ---------------------------------------------------
+# from ragas.metrics import faithfulness, answer_relevancy
+# from ragas.embeddings import LangchainEmbeddingsWrapper
+# from langchain.chat_models import ChatOpenAI
+# from ragas.llms import LangchainLLMWrapper
+# from ragas.run_config import RunConfig
+# from ragas import evaluate
+# from dotenv import load_dotenv
+# import os
 
-# Carrega as variáveis definidas no .env para o ambiente
-load_dotenv()  
+# # Carrega as variáveis definidas no .env para o ambiente
+# load_dotenv()  
 
-# Recupera a chave
-openai_key = os.getenv("OPENAI_API_KEY")
-if openai_key is None:
-    raise ValueError("Não encontrou OPENAI_API_KEY no ambiente")
+# # Recupera a chave
+# openai_key = os.getenv("OPENAI_API_KEY")
+# if openai_key is None:
+#     raise ValueError("Não encontrou OPENAI_API_KEY no ambiente")
 
-# Configs Ragas
-run_config = RunConfig(max_workers=2,
-                       timeout=120)
+# # Configs Ragas
+# run_config = RunConfig(max_workers=2,
+#                        timeout=120)
 
-llm_judger = ChatOpenAI(
-    model_name="gpt-4.1-nano-2025-04-14",
-    temperature=0.1,
-    openai_api_key=openai_key
-)
+# llm_judger = ChatOpenAI(
+#     model_name="gpt-4.1-nano-2025-04-14",
+#     temperature=0.1,
+#     openai_api_key=openai_key
+# )
 
-wrapped_llm        = LangchainLLMWrapper(llm_judger)
-wrapped_embeddings = LangchainEmbeddingsWrapper(embeddings)
+# wrapped_llm        = LangchainLLMWrapper(llm_judger)
+# wrapped_embeddings = LangchainEmbeddingsWrapper(embeddings)
 
-# Prepare seu dataset igual antes
-from datasets import Dataset
-df_eval = pd.DataFrame({
-    "question": perguntas,
-    "answer":   respostas,
-    "contexts": contexts_list
-})
-hf_dataset = Dataset.from_pandas(df_eval)
+# # Prepare seu dataset igual antes
+# from datasets import Dataset
+# df_eval = pd.DataFrame({
+#     "question": perguntas,
+#     "answer":   respostas,
+#     "contexts": contexts_list
+# })
+# hf_dataset = Dataset.from_pandas(df_eval)
 
-# Realiza a Pipeline para avaliar categorias de Fidelidade da Resposta e Relevancia Direta.
-result = evaluate(
-    dataset=hf_dataset,                         # Dataset (Conjunto de Perguntas e Respostas que nosso modelo gerou, assim como o contexto retornado)
-    metrics=[faithfulness, answer_relevancy],   # Métricas escolhidas
-    llm=wrapped_llm,                            # LLM que será o Juíz
-    embeddings=wrapped_embeddings,              # Embeddings usados para o banco vetorial
-    run_config=run_config
-)
+# # Realiza a Pipeline para avaliar categorias de Fidelidade da Resposta e Relevancia Direta.
+# result = evaluate(
+#     dataset=hf_dataset,                         # Dataset (Conjunto de Perguntas e Respostas que nosso modelo gerou, assim como o contexto retornado)
+#     metrics=[faithfulness, answer_relevancy],   # Métricas escolhidas
+#     llm=wrapped_llm,                            # LLM que será o Juíz
+#     embeddings=wrapped_embeddings,              # Embeddings usados para o banco vetorial
+#     run_config=run_config
+# )
 
-# Salva as respostas em um arquivo .csv
-df_scores = result.to_pandas()
-df_scores.to_csv("scores_ragas.csv", index=False)
-print("Scores salvos em scores_ragas.csv")
+# # Salva as respostas em um arquivo .csv
+# df_scores = result.to_pandas()
+# df_scores.to_csv("scores_ragas.csv", index=False)
+# print("Scores salvos em scores_ragas.csv")
