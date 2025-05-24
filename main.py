@@ -104,7 +104,7 @@ url_en_new_gpt = "https://en.wikipedia.org/wiki/GPT-4.5"
 url_en_new_deepseek = "https://en.wikipedia.org/wiki/DeepSeek_%28chatbot%29"
 
 # Carregamento do documento via LangChain
-loader = UnstructuredURLLoader(urls=[url_ptbr_pln_br])
+loader = UnstructuredURLLoader(urls=[url_en_new_deepseek])
 docs = loader.load()
 if not docs:
     raise RuntimeError("Nenhum documento foi carregado!")
