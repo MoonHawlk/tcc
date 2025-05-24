@@ -81,7 +81,7 @@ else:
     model_deepseek_r1_llama = "deepseek-r1:8b"
     model_gemma3_12b = "gemma3:12b"
 
-    modelo_ollama = model_llama3_1
+    modelo_ollama = model_dolphin3
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.1,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
