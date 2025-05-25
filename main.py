@@ -81,7 +81,7 @@ else:
     model_deepseek_r1_llama = "deepseek-r1:8b"
     model_gemma3_12b = "gemma3:12b"
 
-    modelo_ollama = model_zephyr
+    modelo_ollama = model_llama3_1
     llm = Ollama(model=modelo_ollama, 
                        temperature=0.1,  # Respostas mais conservadoras
                        top_k=30,         # Limita a diversidade dos tokens
@@ -104,7 +104,7 @@ url_en_new_gpt = "https://en.wikipedia.org/wiki/GPT-4.5"
 url_en_new_deepseek = "https://en.wikipedia.org/wiki/DeepSeek_%28chatbot%29"
 
 # Carregamento do documento via LangChain
-loader = UnstructuredURLLoader(urls=[url_en_brazil])
+loader = UnstructuredURLLoader(urls=[url_en_new_gpt])
 docs = loader.load()
 if not docs:
     raise RuntimeError("Nenhum documento foi carregado!")
