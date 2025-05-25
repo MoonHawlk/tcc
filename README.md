@@ -25,8 +25,8 @@ Considering that, this repository demonstrates a pipeline for retrieving informa
 
 ## Prerequisites
 
-- **Python** ≥ 3.8  
-- **CUDA-enabled GPU** (optional, but recommended for large HuggingFace models)  
+- **Python** = 3.12.3 
+- **CUDA-enabled GPU** (optional, but recommended for large HuggingFace & Ollama models)  
 - An **Ollama** installation (if using Ollama-served models)  
 - A valid **OpenAI API key** in your environment, named `OPENAI_API_KEY`  
 
