@@ -34,8 +34,8 @@ Considering that, this repository demonstrates a pipeline for retrieving informa
 
 ```bash
 # Clone this repository
-git clone https://github.com/your-org/your-repo.git](https://github.com/MoonHawlk/tcc.git
-cd your-repo
+git clone https://github.com/MoonHawlk/tcc.git
+cd tcc
 
 # Install required Python packages
 pip install uv
