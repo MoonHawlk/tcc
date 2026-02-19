@@ -1,184 +1,159 @@
 # Comparison of LLM Models for Data Retrieval from Static Pages Using RAG Architecture
 
 ## Overview
-This work aims to present a comparative analysis of data retrieval from static pages using Large Language Models (LLMs) and a Retrieval-Augmented Generation (RAG) architecture. The study seeks to understand the nuances and challenges involved in choosing the most effective model for this task, highlighting the importance of robust and standardized evaluation methods.
 
-Considering that, this repository demonstrates a pipeline for retrieving information from static web pages using Large Language Models (LLMs) combined with a Retrieval-Augmented Generation (RAG) architecture. It supports experimentation with both Ollama-served models and HuggingFace-hosted models, and includes automated evaluation of generated answers using the RAGAS framework.
+This work presents a comparative analysis of data retrieval from static pages using Large Language Models (LLMs) and a Retrieval-Augmented Generation (RAG) architecture. The study evaluates multiple Ollama-served models against Wikipedia pages in different languages, using the RAGAS framework for automated scoring.
 
-## Table of Contents
+The pipeline loads a web page, splits it into chunks, indexes them via embeddings in a Chroma vector store, and uses a RetrievalQA chain to answer batches of questions from CSV files. Results are evaluated with RAGAS metrics (faithfulness and answer relevancy).
 
-- [Prerequisites](#prerequisites)  
-- [Installation](#installation)  
-- [Configuration Flags](#configuration-flags)  
-- [Architecture](#architecture)  
-- [How It Works](#how-it-works)  
-  1. [Model Initialization](#1-model-initialization)  
-  2. [Document Loading & Splitting](#2-document-loading--splitting)  
-  3. [Embeddings & Vector Store](#3-embeddings--vector-store)  
-  4. [(Optional) Few-Shot Prompting](#4-optional-few-shot-prompting)  
-  5. [Building the QA Chain](#5-building-the-qa-chain)  
-  6. [Batch Query Processing & CSV I/O](#6-batch-query-processing--csv-io)  
-  7. [Automated Evaluation with RAGAS](#7-automated-evaluation-with-ragas)  
-- [Input & Output Specifications](#input--output-specifications)  
-- [Cleaning Up & Unloading Models](#cleaning-up--unloading-models)  
-- [Notes & Tips](#notes--tips)  
+## Project Structure
+
+```
+tcc/
+├── main.py                    # Entry point with argparse CLI
+├── config/
+│   └── default.yaml           # All pipeline configuration
+├── src/
+│   ├── __init__.py
+│   ├── llm.py                 # LLM initialization (Ollama / HuggingFace)
+│   ├── document.py            # URL loading and text splitting
+│   ├── retriever.py           # Embeddings and Chroma vector store
+│   ├── chain.py               # QA chain setup (+ optional few-shot)
+│   ├── evaluate.py            # RAGAS evaluation pipeline
+│   └── utils.py               # Question processing and model management
+├── data/
+│   ├── perguntas/             # Question sets per Wikipedia page
+│   ├── gabarito/              # Ground-truth answers
+│   └── respostas/             # Model outputs organized by topic
+│       └── {topic}/ragas/     # RAGAS scores per model
+├── reports/
+│   ├── performance.csv        # Combined benchmark data
+│   ├── plots/                 # Generated charts
+│   └── notebooks/             # Analysis notebooks
+├── legacy/                    # Previous script versions (for reference)
+├── .env.example               # Environment variable template
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
 
 ## Prerequisites
 
-- **Python** = 3.12.3 
-- **CUDA-enabled GPU** (optional, but recommended for large HuggingFace & Ollama models)  
-- An **Ollama** installation (if using Ollama-served models)  
-- A valid **OpenAI API key** in your environment, named `OPENAI_API_KEY`  
+- **Python** >= 3.12
+- **Ollama** installed and running ([ollama.com](https://ollama.com))
+- **OpenAI API key** for RAGAS evaluation (stored in `.env`)
 
 ## Installation
 
 ```bash
-# Clone this repository
 git clone https://github.com/MoonHawlk/tcc.git
 cd tcc
 
-# Install required Python packages
 pip install uv
-uv pip install langchain transformers torch unstructured langchain-huggingface chromadb pandas ragas datasets
+uv pip install -r requirements.txt
+
+# Copy and fill in your API key
+cp .env.example .env
 ```
 
-## Configuration Flags
+## Quick Start
 
-- `usar_ollama`  
-  - **Type:** boolean  
-  - **Default:** `True`  
-  - **Description:**  
-    - `True`: use Ollama-served models.  
-    - `False`: use HuggingFace models via a local pipeline.  
+```bash
+# Run with default config (zephyr model, GPT-4.5 Wikipedia page)
+python main.py
 
-- `usar_few_shot`  
-  - **Type:** boolean  
-  - **Default:** `False`  
-  - **Description:**  
-    - `True`: prepend a few-shot prompt template to each query (requires manual maintenance of examples).  
-    - `False`: use a zero-shot refine chain.
+# Override model
+python main.py --model "mistral:latest"
+
+# Override model, URL, and question set
+python main.py --model "dolphin3:latest" \
+               --url "https://en.wikipedia.org/wiki/Brazil" \
+               --input data/perguntas/EN_Brazil.csv
+
+# Skip RAGAS evaluation (saves OpenAI tokens)
+python main.py --skip-ragas
+
+# Enable few-shot prompting
+python main.py --few-shot
+
+# Use HuggingFace backend instead of Ollama
+python main.py --backend huggingface
+
+# Use a custom config file
+python main.py --config config/experiment_brazil.yaml
+```
+
+## Configuration
+
+All parameters are defined in `config/default.yaml`:
+
+| Section | Key | Default | Description |
+|---------|-----|---------|-------------|
+| `backend` | - | `"ollama"` | `"ollama"` or `"huggingface"` |
+| `ollama` | `model` | `"zephyr:latest"` | Ollama model tag |
+| `ollama` | `temperature` | `0.1` | Generation temperature |
+| `ollama` | `top_k` | `30` | Token diversity limit |
+| `ollama` | `top_p` | `0.8` | Nucleus sampling threshold |
+| `document` | `url` | GPT-4.5 Wikipedia | Target page URL |
+| `document` | `chunk_size` | `512` | Text splitter chunk size |
+| `document` | `chunk_overlap` | `50` | Overlap between chunks |
+| `embeddings` | `model_name` | `all-MiniLM-L6-v2` | Sentence-transformer model |
+| `embeddings` | `retriever_k` | `3` | Top-k documents to retrieve |
+| `chain` | `type` | `"refine"` | LangChain chain type |
+| `chain` | `few_shot` | `false` | Enable few-shot prompting |
+| `ragas` | `judge_model` | `gpt-4.1-nano` | OpenAI model for evaluation |
+
+Any value can be overridden via CLI arguments (see `python main.py --help`).
 
 ## Architecture
 
 ```
-[Config] → [LLM Init] → [Loader & Split] → [Embeddings & VectorStore] → [QA Chain] → [CSV I/O]
+[YAML Config] ──> [argparse CLI overrides]
+                           │
+                    ┌──────▼──────┐
+                    │  build_llm  │  src/llm.py
+                    └──────┬──────┘
+                    ┌──────▼──────────┐
+                    │ load_and_split  │  src/document.py
+                    └──────┬──────────┘
+                    ┌──────▼────────────┐
+                    │ build_retriever   │  src/retriever.py
+                    └──────┬────────────┘
+                    ┌──────▼──────────────┐
+                    │ build_qa_chain      │  src/chain.py
+                    └──────┬──────────────┘
+                    ┌──────▼──────────────────┐
+                    │ process_questions (CSV)  │  src/utils.py
+                    └──────┬──────────────────┘
+                    ┌──────▼──────────┐
+                    │ unload_model    │  src/utils.py
+                    └──────┬──────────┘
+                    ┌──────▼──────────┐
+                    │ run_ragas       │  src/evaluate.py
+                    └─────────────────┘
 ```
-This linear pipeline ingests configuration flags, initializes the LLM, retrieves and preprocesses documents, builds a similarity search index, answers queries in bulk, and writes outputs to CSV.
 
-## How It Works
+## Input & Output
 
-### 1. Model Initialization
+| File | Role |
+|------|------|
+| `config/default.yaml` | Pipeline configuration |
+| `perguntas.csv` | Input questions (column: `pergunta`) |
+| `respostas.csv` | Generated answers |
+| `scores_ragas.csv` | RAGAS evaluation scores |
 
-- **HuggingFace Mode** (`usar_ollama = False`):  
-  1. Detect GPU availability.  
-  2. Load `Qwen/Qwen2.5-Math-1.5B` with half-precision (`float16`) onto GPU/CPU.  
-  3. Configure generation hyperparameters (temperature, top_k, top_p, etc.).  
-  4. Wrap in a LangChain `HuggingFacePipeline` for downstream use.  
-  5. Run a quick “Olá, mundo!” sanity check.  
+## Models Tested
 
-- **Ollama Mode** (`usar_ollama = True`):  
-  1. Define a shortlist of Ollama models (e.g., `llama3.1:latest`, `zephyr:latest`).  
-  2. Select `modelo_ollama` (default: `zephyr:latest`).  
-  3. Instantiate `langchain.llms.Ollama` with low temperature for conservative answers.  
+| Model | Ollama Tag |
+|-------|-----------|
+| Zephyr | `zephyr:latest` |
+| Mistral | `mistral:latest` |
+| LLaMA 3.1 | `llama3.1:latest` |
+| Dolphin 3 | `dolphin3:latest` |
 
-Prints an initialization message indicating which path was taken.
+## Notes
 
-### 2. Document Loading & Splitting
-
-1. **URL Selection**  
-   - Default target: GPT-4.5 Wikipedia page (`https://en.wikipedia.org/wiki/GPT-4.5`).  
-2. **Loading**  
-   - Use `UnstructuredURLLoader` to fetch raw page text.  
-   - Error out if loading fails.  
-3. **Splitting**  
-   - Instantiate `CharacterTextSplitter` with:
-     - `separator=" "`  
-     - `chunk_size=512`  
-     - `chunk_overlap=50`  
-   - Split raw document into semantically coherent paragraphs/chunks.  
-
-Logs the number of chunks generated.
-
-### 3. Embeddings & Vector Store
-
-1. **Embeddings Model**  
-   - By default: `sentence-transformers/all-MiniLM-L6-v2`.  
-2. **Indexing**  
-   - Create a Chroma vector store from the document chunks.  
-   - Wrap it as a retriever with `search_kwargs={"k": 3}` for top-3 similarity results.
-
-### 4. (Optional) Few-Shot Prompting
-
-When `usar_few_shot = True`:
-
-- Define a small set of `[question, context, answer]` examples.  
-- Build a `FewShotPromptTemplate` that prefixes each query.  
-- Pass this template into the QA chain’s `chain_type_kwargs`.  
-
-This helps steer the model but requires manual upkeep.
-
-### 5. Building the QA Chain
-
-- Use `RetrievalQA.from_chain_type` with:
-  - `llm`: the initialized LLM  
-  - `chain_type="refine"` for an iterative answer-refinement approach  
-  - `retriever`: the Chroma retriever  
-  - `return_source_documents=True` to capture provenance  
-  - Optional `prompt` override for few-shot  
-
-### 6. Batch Query Processing & CSV I/O
-
-1. **Inputs**  
-   - `perguntas.csv` must contain a column header `"pergunta"`.  
-2. **Loop**  
-   - Read all questions into a list.  
-   - For each question:
-     - Invoke `qa_chain` with `{"query": pergunta}`.  
-     - Collect `result` (answer) and `source_documents` (contexts).  
-3. **Outputs**  
-   - Append answers to the DataFrame as a `"resposta"` column.  
-   - Write to `respostas.csv`.  
-   - Log total QA time.
-
-### 7. Automated Evaluation with RAGAS
-
-After QA is complete:
-
-1. **Environment Setup**  
-   - Load `.env` and retrieve `OPENAI_API_KEY`.  
-2. **Judger LLM**  
-   - Instantiate `ChatOpenAI(model_name="gpt-4.1-nano-2025-04-14")` for evaluation.  
-3. **Wrappers**  
-   - Wrap both the judger LLM and embeddings in RAGAS-compatible adapters.  
-4. **Dataset Preparation**  
-   - Build a HuggingFace `Dataset` from questions, answers, and captured contexts.  
-5. **Metrics**  
-   - Evaluate using `faithfulness` and `answer_relevancy`.  
-   - Save results to `scores_ragas.csv`.
-
-## Input & Output Specifications
-
-| File             | Role                                   |
-| ---------------- | -------------------------------------- |
-| `perguntas.csv`  | Input table with a `pergunta` column.  |
-| `respostas.csv`  | QA answers appended to original table. |
-| `scores_ragas.csv` | RAGAS evaluation scores.            |
-
-## Cleaning Up & Unloading Models
-
-- After processing, the script defines and calls:
-
-  ```python
-  def unload_model(model_name: str):
-      subprocess.run(["ollama", "stop", model_name], check=True)
-  ```
-
-- Ensures GPU/CPU memory is freed before evaluation.
-
-## Notes & Tips
-
-- **Switching Models:** Toggle `usar_ollama` to compare local vs. Ollama-served models.  
-- **Chunk Parameters:** Adjust `chunk_size` and `chunk_overlap` based on document length.  
-- **Retriever Tuning:** Change `k` in `search_kwargs` to retrieve more or fewer context chunks.  
-- **Prompt Engineering:** Use `usar_few_shot` judiciously; it can improve accuracy at the cost of maintenance.  
-- **Evaluation Budget:** RAGAS evaluation may incur OpenAI API usage; monitor `timeout` and `max_workers` settings.
+- **Memory Management:** After QA processing, the Ollama model is automatically unloaded to free GPU memory before RAGAS evaluation runs.
+- **Reproducibility:** Each experiment can be fully defined by a single YAML config file. Copy `config/default.yaml` to create experiment-specific configs.
+- **Chunk Tuning:** Adjust `chunk_size` and `chunk_overlap` based on document length for optimal retrieval.
+- **Evaluation Cost:** RAGAS evaluation uses the OpenAI API. Use `--skip-ragas` during development to avoid costs.

@@ -1,0 +1,53 @@
+# ============================================================
+# RAG Pipeline Configuration
+# ============================================================
+# All parameters that were previously hardcoded in main.py
+# are now centralized here. Override any value via CLI args.
+# ============================================================
+
+# Backend: "ollama" or "huggingface"
+backend: "ollama"
+
+# Ollama configuration
+ollama:
+  model: "zephyr:latest"
+  temperature: 0.1
+  top_k: 30
+  top_p: 0.8
+
+# HuggingFace configuration (used when backend: "huggingface")
+huggingface:
+  model_name: "Qwen/Qwen2.5-Math-1.5B"
+  temperature: 0.3
+  top_k: 30
+  top_p: 0.8
+  max_new_tokens: 128
+
+# Document source
+document:
+  url: "https://en.wikipedia.org/wiki/GPT-4.5"
+  chunk_size: 512
+  chunk_overlap: 50
+
+# Embeddings and retriever
+embeddings:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  retriever_k: 3
+
+# QA Chain
+chain:
+  type: "refine"
+  few_shot: false
+
+# I/O paths
+io:
+  input_csv: "perguntas.csv"
+  output_csv: "respostas.csv"
+  scores_csv: "scores_ragas.csv"
+
+# RAGAS evaluation
+ragas:
+  judge_model: "gpt-4.1-nano-2025-04-14"
+  judge_temperature: 0.1
+  max_workers: 2
+  timeout: 120
